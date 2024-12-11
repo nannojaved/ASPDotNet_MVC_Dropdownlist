@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@Html.DropDownList("Country", new List<SelectListItem> { 
+    new SelectListItem { Text = "Norge", Value = "1"},
+    new SelectListItem { Text = "Sverige", Value = "2"},
+    new SelectListItem { Text = "Danmark", Value = "3"}
+}, "Please select a country", new { @style = "width: 50%; background: red;" })
+
+<br />
+<br />
+<br />
+
+@Html.DropDownList("Avdelinger", new List<SelectListItem> {
+    new SelectListItem { Text = "IM", Value = "1"},
+    new SelectListItem { Text = "ST", Value = "2"},
+    new SelectListItem { Text = "EL", Value = "3"},
+    new SelectListItem { Text = "IB", Value = "4"},
+    new SelectListItem { Text = "Dronefag", Value = "5"}
+}, "Please select a department", new { @style = "width: 25%; background: slateblue;" })
+
+
+<button onclick="showSelectedItem()">Show Item on Label</button>
+<p>
+    <label id="lblItem">No Item selected</label>
+</p>
+
+<script>
+    function showSelectedItem() { 
+        var seletedItem = document.getElementById("Avdelinger");
+        var lblItem = document.getElementById("lblItem");
+        //lbl.innerText = seletedItem.value;
+        lblItem.innerText = "You selected " + seletedItem.options[seletedItem.selectedIndex].text + " with Id " + seletedItem.value;
+        //lbl.innerText = selectedItem.selectedIndex.text; virker ikke
+        //lbl.innerText = seletedItem.options[seletedItem.selectedIndex].textContent; virker også
+    }
+</script>
+
